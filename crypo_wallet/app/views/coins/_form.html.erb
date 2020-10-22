@@ -1,0 +1,20 @@
+   
+    <%= simple_form_for(@coin) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <%= f.input :description %>  
+    <%= f.input :acronym %>
+    <%= f.input :url_image %>
+    <%= f.label :id %>
+    <%#= f.select("id", MiningType.all.collect {|m| [ m.description, m.id ] }, { include_blank: 'Selecione' }) %>
+    <%= f.select("mining_type_id", @mining_type_options, { include_blank: 'Selecione...' }, class:"form-control") %>
+    <%#= f.association :mining_type, include_blank: 'Selecione', label: 'Tipo de Mineração' %>
+    <br>    
+   <div class="container">
+        <%= f.button :submit, value: "Save", class: "btn btn-#{@coin.new_record? ? "success" : "primary"}" %>
+        <%= link_to 'Back', coins_path, class: 'btn btn-light text-dark' %>
+    </div>
+    <% end %>
+
+  

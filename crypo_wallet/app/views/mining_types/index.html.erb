@@ -1,0 +1,97 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <h1>Mining Types</h1>
+    </div>
+
+    <div class="col-sm-6 text-md-right mb-3">
+      <%= link_to new_mining_type_path, class: 'btn btn-primary text-white' do %>
+        <strong>New Mining Types</strong>
+      <% end %>
+    </div>
+  </div>
+
+  <% if notice %>
+    <h6 class="alert alert-success"><%= notice %></h6>
+  <% end %>
+
+  <% if alert %>
+    <h6 class="alert alert-warning"><%= alert %></h6>
+  <% end %>
+
+  <hr>
+
+  <%= search_form_for @q do |f| %>
+    <div class="form-group row">             
+      <div class="col-sm-6">
+      
+        <label>Description</label>
+          <%= f.search_field :description_cont, class: 'form-control' %>         
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mb-3">
+        <%= f.submit "buscar", class: 'btn btn-primary' %>
+        <%= link_to "clear search", mining_types_path, class: 'btn btn-light text-dark' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover mb-3">
+      <thead>
+      <tr>
+
+        <th class="text-center">
+          <%= sort_link(@q, :id) do %>
+            ID
+          <% end %>
+        </th>
+        
+        <th class="text-center">
+          <%= sort_link(@q, :description) do %>
+            Description
+          <% end %>
+        </th>
+
+        <th class="text-center">
+          <%= sort_link(@q, :acronym) do %>
+          Acronym
+          <% end %>
+        </th>    
+
+        <th class="text-center" colspan="4">Ações</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @mining_type.each do |c| %>
+        <tr>
+          <td class="text-center"><%= c.id %></td>
+
+          <td class="text-center"><%= c.description %></td>
+
+          <td class="text-center"><%= c.acronym %></td>
+                   
+          <td class="text-center">
+            <%= link_to 'Show', c, class: 'btn btn-info btn-sm text-white' %>
+          </td>
+
+          <td class="text-center">
+            <%= link_to 'Edit', edit_mining_type_path(c), class: 'btn btn-primary btn-sm text-white' %>
+          </td>
+
+          <td class="text-center">
+            <%= link_to 'Delete', c, method: :delete, class: 'btn btn-primary btn-sm text-white', data: { confirm: 'Are you sure?' } %>
+          </td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%== @pagy %>
+</div>

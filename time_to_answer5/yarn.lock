@@ -7,17 +7,75 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.1.tgz#ccfef6ddbe59f8fe8f694783e1d3eb88902dc5eb"
   integrity sha512-OEdH7SyC1suTdhBGW91/zBfR6qaIhThbcN8PUXtXilY4GYnSBbVqOntdHbC1vXwsDnX0Qix2m2+DSU1J51ybOQ==
 
-bootstrap@^4.5.3:
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.3.tgz#c6a72b355aaf323920be800246a6e4ef30997fe6"
-  integrity sha512-o9ppKQioXGqhw8Z7mah6KdTYpNQY//tipnkxppWhPbiSWdD+1raYsnhwEZjkTHYbGee4cVQ0Rx65EhOY/HNLcQ==
+bootstrap@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
+
+bootstrap@^3.0.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.4.1.tgz#c3a347d419e289ad11f4033e3c4132b87c081d72"
+  integrity sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA==
 
 carolsail.jquery@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/carolsail.jquery/-/carolsail.jquery-1.0.0.tgz#356fb0d1799d08249baf886c83493ae3d3c3d8a6"
   integrity sha512-G5IOboH7m/fo0v2KtMkn1KvbVF8voapSHcePH7puQIE685J80WcZAz3nSpysqlHmF8pZdX5J8HXmsGQUrQEoDw==
 
+fastclick@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/fastclick/-/fastclick-1.0.6.tgz#161625b27b1a5806405936bda9a2c1926d06be6a"
+  integrity sha1-FhYlsnsaWAZAWTa9qaLBkm0Gvmo=
+
+font-awesome@4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.6.3.tgz#86933651540ee00874c664017f50f2172f6531a2"
+  integrity sha1-hpM2UVQO4Ah0xmQBf1DyFy9lMaI=
+
+jquery-mousewheel@3.1.13, jquery-mousewheel@>=3.0.6:
+  version "3.1.13"
+  resolved "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
+  integrity sha1-BvAzXxbjU6aV5yBr9QUDy1I6buU=
+
 jquery.easing@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jquery.easing/-/jquery.easing-1.4.1.tgz#47982c5836bd758fd48494923c4a101ef6e93e3b"
   integrity sha1-R5gsWDa9dY/UhJSSPEoQHvbpPjs=
+
+"jquery@1.9.1 - 3":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+
+jquery@2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+  integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
+
+malihu-custom-scrollbar-plugin@^3.0.9:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/malihu-custom-scrollbar-plugin/-/malihu-custom-scrollbar-plugin-3.1.5.tgz#310cecc5e59415a1c29e9dfb5d2b6e01d66a29ef"
+  integrity sha1-MQzsxeWUFaHCnp37XStuAdZqKe8=
+  dependencies:
+    jquery-mousewheel ">=3.0.6"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
+
+propellerkit-custom-scrollbar@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/propellerkit-custom-scrollbar/-/propellerkit-custom-scrollbar-1.2.0.tgz#c366f9935c8f542f2b71b38dcbd69088ca6a0bc2"
+  integrity sha1-w2b5k1yPVC8rcbONy9aQiMpqC8I=
+  dependencies:
+    malihu-custom-scrollbar-plugin "^3.0.9"
+    propellerkit "*.*.*"
+
+propellerkit@*.*.*:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/propellerkit/-/propellerkit-1.3.1.tgz#59ea2b9ea7b0c7c1844cae6ea339457a18d6a1e8"
+  integrity sha1-Weornqewx8GETK5uozlFehjWoeg=
+  dependencies:
+    bootstrap "^3.0.0"
+    jquery "1.9.1 - 3"

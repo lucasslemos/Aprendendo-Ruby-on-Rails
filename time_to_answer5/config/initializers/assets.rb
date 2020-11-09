@@ -17,8 +17,10 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_ba
 
 
 Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin2.css custom.js
-                                                  custom.css bootstrap.css )
+                                                  custom.css bootstrap.css 
+                                                  img.jpg)
 
 
 
-Rails.application.config.assets.precompile += %w(users-jquery.js)
+Rails.application.config.assets.precompile += %w(jquery-2.2.3/dist/jquery.js
+                                                  bootstrap/dist/js/bootstrap.bundle.js)

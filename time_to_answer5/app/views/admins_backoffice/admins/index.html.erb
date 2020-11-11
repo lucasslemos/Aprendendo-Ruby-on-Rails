@@ -9,7 +9,12 @@
                   <tr role="row">
                     <th style="width: 80px;">#</th>
                     <th>Email</th>
-                    <th style="width: 100px;"></th>
+                    <th style="width: 100px;">
+                      <a class="btn btn-success btn-circle btn-sm" <%= link_to new_admins_backoffice_admin_path do %>
+                        <i class="fas fa-plus"></i>
+                      <% end %>
+                      </a>
+                    </th>
                 </thead>
 
               <tbody>
@@ -24,9 +29,11 @@
                           <% end %>
                           </a>
 
-                          <a href="#" class="btn btn-danger btn-circle btn-sm">
+                          <a class="btn btn-danger btn-circle btn-sm" <%= link_to admins_backoffice_admin_path(admin.id), method: :delete, data: {confirm: "Deseja realmente exluir esse administrador?"} do %>
                             <i class="fas fa-minus"></i>
+                          <% end %>
                           </a>
+
                       </td>
               </tr>
                 <% end %>

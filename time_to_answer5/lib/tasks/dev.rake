@@ -1,10 +1,4 @@
 namespace :dev do
-  desc "TODO"
-  task setup: :environment do
-  end
-
-end
-namespace :dev do
 
   DEFAULT_PASSWORD = 123456
   DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
@@ -36,7 +30,7 @@ namespace :dev do
 
   desc "Adiciona administradores extras"
   task add_extra_admins: :environment do
-    100.times do |i|
+    10.times do |i|
       Admin.create!(
         email: Faker::Internet.email,
         password: DEFAULT_PASSWORD,

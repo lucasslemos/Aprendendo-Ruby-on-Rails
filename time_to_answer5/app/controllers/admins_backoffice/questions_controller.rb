@@ -1,8 +1,11 @@
 class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   before_action :set_question, only: [:edit, :update, :destroy]
+  before_action :get_subjects, only: [:new, :edit]
 
   def index
-    @questions = Question.all.order(:description).page(params[:page])
+    @questions = Question.includes(:subject)
+                        .order(:description)
+                        .page(params[:page])
   end
 
   def edit
@@ -14,7 +17,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
 
   def create
     @question = Question.new(params_question)
-    if @question.save
+    if  @question.save
       redirect_to admins_backoffice_questions_path, notice: "Questão cadastrada com sucesso!"
     else
       render :new
@@ -39,11 +42,15 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
 
   private
   def params_question 
-    params.require(:question).permit(:description)
+    params.require(:question).permit(:description, :subject_id )
   end
 
   def set_question
     @question = Question.find(params[:id])
   end
+
+  def get_subjects
+    @subjects = Subject.all
+  end 
 
 end

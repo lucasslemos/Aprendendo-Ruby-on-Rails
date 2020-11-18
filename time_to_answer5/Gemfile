@@ -69,6 +69,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #gem 'pry-rails'
   gem 'awesome_print'
+  #da eroro
+  gem 'rails_db', '2.3.1'
 end
 
 

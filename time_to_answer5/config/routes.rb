@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
+  
 
   get 'inicio', to: 'site/welcome#index'
 

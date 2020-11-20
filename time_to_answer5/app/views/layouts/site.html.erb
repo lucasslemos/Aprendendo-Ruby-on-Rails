@@ -40,39 +40,83 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Fixed navbar</a>
+  <a class="navbar-brand" href="#">TimeToAnswer</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
     </ul>
-    <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div class="class="form-inline mt-2 mt-md-0"">
+      <ul class="navbar-nav mr-auto">
+        <% unless user_signed_in? %>
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to 'Entrar', new_user_session_path %> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" <%= link_to 'Cadastrar-se', new_user_registration_path %> </a>
+        </li>
+        <% else %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <%= current_user.email %>
+          </a>
+        
+          <div class="dropdown-menu">
+            <a class="dropdown-item" <%= link_to users_backoffice_welcome_index_path	do %>
+            <i class="fa fa-user fa-fw"></i>Perfil
+            </a>
+            <% end %>
+            <a class="dropdown-item" <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Sair
+            </a>
+            <% end %>
+          </div>
+
+        </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <main role="main" class="container">
   <div class="jumbotron">
-    <%= yield %>
+
+    <h1>Site::Welcome#index</h1>
+<p>Find me in app/views/site/welcome/index.html.erb</p>
+
+  <% if user_signed_in? %>
+    <p>Usuário ESTÁ logado / <%= current_user.email %></p>
+  <% else %>
+    <p>Usuário NÃO está logado</p>
+  <% end %>
+
+  <% if admin_signed_in? %>
+    <p>Administrador ESTÁ logado / <%= current_admin.email %></p>
+  <% else %>
+    <p>Administrador NÃO está logado</p>
+  <% end %>
+
   </div>
+  <%= yield %>
 </main>
 
 <%= javascript_include_tag 'application' %>
 <%= javascript_include_tag 'site' %>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<% if notice %>
+  <script>
+    $.bootstrapGrowl("<%= notice %>", {
+        type: 'success', // (null, 'info', 'danger', 'success')
+        align: 'right', // ('left', 'right', or 'center')
+        allow_dismiss: true, // If true then will display a cross to close the popup.
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+         });
+  </script>
+  <% end %>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 </html>

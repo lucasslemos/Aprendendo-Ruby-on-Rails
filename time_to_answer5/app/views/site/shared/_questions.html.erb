@@ -8,20 +8,19 @@
   <% end %>
 </div>
 
-<h3>ASSUNTO</h3>
-
-<h3>ASSUNTO</h3>
-
-
-
 <% @questions.each do |question| %>
 <%= form_with url: site_answer_path do |form| %>
 <div class="card">
-  <div class="card-header">
-    <span class="label label-info">
-      <%= question.subject.description %>
-    </span>
-    <%= question.description %>
+  <div class="card-header"  id="headingOne">
+
+    <h5 class="mb-0">
+      
+      <label class="btn btn-sm btn-outline-info py-10" style="margin-right: 10px;">
+        <%= link_to question.subject.description, site_search_subject_path(question.subject_id) %>
+      </label>
+      <%= question.description %>
+    </h5>
+    
   </div>
   <div class="card-body">
     <ul>
@@ -37,7 +36,7 @@
           </li>
         <% end %>
         <li style="list-style:none;">
-          <%= form.submit "Responder", class:"btn btn-default", id: "submit_#{question.id}" %>
+          <%= form.submit "Responder", class:"btn btn-secondary", id: "submit_#{question.id}" %>
         </li>
     </ul>
   </div>

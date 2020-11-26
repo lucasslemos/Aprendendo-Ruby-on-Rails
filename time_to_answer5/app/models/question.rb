@@ -6,9 +6,8 @@ class Question < ApplicationRecord
    # Kaminari Pagination
   paginates_per 5
 
- # Scopes
- scope :_search_subject, ->(page, subject_id) {
-     includes(:answers)
+  scope :_search_subject_, ->(page, subject_id){
+    includes(:answers, :subject)
     .where(subject_id: subject_id)
     .page(page)
   }
